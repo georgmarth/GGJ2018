@@ -120,7 +120,7 @@ public class UDPTransfer : MonoBehaviour {
 
         while (!quit)
         {
-
+	    Debug.Log("sending an: " + remoteIP);
             IPEndPoint SendEndPoint = new IPEndPoint(IPAddress.Parse(remoteIP), 22222);
 
             if (PlayManager.Instance.gameState == PlayManager.GameState.Ready || PlayManager.Instance.gameState == PlayManager.GameState.Running)
