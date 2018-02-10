@@ -9,7 +9,10 @@ public class Beam : MonoBehaviour {
     public float minSpeed = 1f;
     public float maxSpeed = 5f;
     public float maxAngle = 45f;
-    public float rotateSpeed = 3f;
+    public float MinrotateSpeed = 1f;
+    public float MaxrotateSpeed = 3f;
+
+    private float rotateSpeed;
 
     private float moveSpeed;
     private Rigidbody rb;
@@ -32,7 +35,7 @@ public class Beam : MonoBehaviour {
         intersectingFocal = false;
         rb = GetComponent<Rigidbody>();
         moveSpeed = Random.Range(minSpeed, maxSpeed) * ((Random.Range(0, 2) * 2) - 1);
-
+        rotateSpeed = Random.Range(MinrotateSpeed, MaxrotateSpeed) * ((Random.Range(0, 2) * 2) - 1);
     }
 
     private void OnTriggerEnter(Collider other)
