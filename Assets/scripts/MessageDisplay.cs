@@ -15,6 +15,9 @@ public class MessageDisplay : MonoBehaviour {
     public Sprite OImage;
     public Sprite IImage;
 
+    public Sprite GoodImage;
+    public Sprite BadImage;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -57,26 +60,32 @@ public class MessageDisplay : MonoBehaviour {
         }
         */
         GameObject messageInstance = Instantiate(messagePrefab, transform);
-        Sprite letter;
+        Sprite image;
         switch(symbol)
         {
             case PlayManager.Symbol.I:
-                letter = IImage;
+                image = IImage;
                 break;
             case PlayManager.Symbol.O:
-                letter = OImage;
+                image = OImage;
                 break;
             case PlayManager.Symbol.K:
-                letter = KImage;
+                image = KImage;
                 break;
             case PlayManager.Symbol.L:
-                letter = LImage;
+                image = LImage;
+                break;
+            case PlayManager.Symbol.Good:
+                image = GoodImage;
+                break;
+            case PlayManager.Symbol.Bad:
+                image = BadImage;
                 break;
             default:
                 return;
         }
 
-        messageInstance.GetComponentInChildren<Image>().sprite = letter;
+        messageInstance.GetComponentInChildren<Image>().sprite = image;
         //timer = messageTimeOut;
     }
 }

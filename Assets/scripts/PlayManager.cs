@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayManager : MonoBehaviour {
 
     public enum GameState { Standby, Ready, Running, Gameover}
-    public enum Symbol { I, O, K, L, None}
+    public enum Symbol { I, O, K, L, None, Good, Bad}
 
     public float signalIncreaseRate = 2f;
     public float signalDecreaseRate = 2f;
@@ -62,6 +62,11 @@ public class PlayManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
 
         if (remoteState == GameState.Gameover)
         {

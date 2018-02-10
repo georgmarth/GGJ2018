@@ -85,15 +85,17 @@ public class UDPTransfer : MonoBehaviour {
 
     private void ReceiveThread()
     {
+        Debug.Log("Start Receiving");
       
         while (!quit)
         {
+            Debug.Log("ReceiveLoop");
             try
             {
                 IPEndPoint ReceiveEndPoint = new IPEndPoint(IPAddress.Any, 0);
                 udpClient.Client.Blocking = true;
                 byte[] receiveBytes = udpClient.Receive(ref ReceiveEndPoint);
-                //Debug.Log(receiveBytes.Length);
+                Debug.Log(receiveBytes.Length);
                 if (receiveBytes.Length > 0)
                 {
                     lock (lockObject)
